@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Homework array, part 2");
@@ -20,7 +22,8 @@ public class Main {
         for (int element : arrVariable) {
             if (element < min) {
                 min = element;
-            } else {
+            }
+            if (element > max) {
                 max = element;
             }
         }
@@ -31,18 +34,20 @@ public class Main {
 
         int[] expenses = {280, 360, 570, 690, 750};
         int totalExpenses = 0;
-        for (int expense : expenses) {
-            totalExpenses += expense;
+        for (int i = 0; i < expenses.length; i++) {
+            totalExpenses += expenses[i];
         }
-        int weekMonth = 4;
-        double averageExpenses = (double) totalExpenses / weekMonth;
+        double averageExpenses = (double) totalExpenses / expenses.length;
         System.out.println("Средняя сумма трат за месяц составила " + averageExpenses + " рублей");
 
         System.out.println("\nTask 4");
 
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for (int reverse = reverseFullName.length - 1; reverse >=0; reverse--) {
-            System.out.print(reverseFullName[reverse]);
-            }
+        for (int i = 0; i < reverseFullName.length / 2; i++) {
+            char reverse = reverseFullName[i];
+            reverseFullName[i] = reverseFullName[reverseFullName.length - 1 - i];
+            reverseFullName[reverseFullName.length - 1 - i] = reverse;
         }
+        System.out.print(reverseFullName);
     }
+}
